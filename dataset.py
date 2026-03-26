@@ -50,6 +50,15 @@ SAMPLE_POSTS = [
     "This is fine",
     "So excited for the weekend",
     "I am not happy about this",
+    # Added posts
+    "lowkey having the best day no cap lol",
+    "I absolutely love when my code breaks right before a deadline",
+    "just got rejected but honestly it do be like that sometimes :(",
+    "finally done with everything!! so happy rn :)",
+    "highkey stressed and exhausted but at least the weekend is close",
+    "nothing is wrong I'm totally fine :)",
+    "this food is so bad it's actually good lmao",
+    "feeling all over the place today idk",
 ]
 
 # Human labels for each post above.
@@ -65,6 +74,15 @@ TRUE_LABELS = [
     "neutral",   # "This is fine"
     "positive",  # "So excited for the weekend"
     "negative",  # "I am not happy about this"
+    # Added labels
+    "positive",  # "lowkey having the best day no cap 😂"
+    "negative",  # sarcasm: "I absolutely love when my code breaks..."
+    "mixed",     # "just got rejected but honestly it do be like that sometimes 🥲"
+    "positive",  # "finally done with everything!! 🎉 so happy rn"
+    "mixed",     # "highkey stressed and exhausted but at least the weekend is close"
+    "neutral",   # ambiguous: "nothing is wrong I'm totally fine :)"
+    "mixed",     # "this food is so bad it's actually good 💀"
+    "mixed",     # "feeling all over the place today idk"
 ]
 
 # TODO: Add 5-10 more posts and labels.
@@ -92,3 +110,5 @@ TRUE_LABELS = [
 #
 # Remember to keep them aligned:
 #   len(SAMPLE_POSTS) == len(TRUE_LABELS)
+
+#print(len(SAMPLE_POSTS) == len(TRUE_LABELS))

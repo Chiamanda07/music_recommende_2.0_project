@@ -21,6 +21,7 @@ def evaluate_rule_based(posts: List[str], labels: List[str]) -> float:
 
     print("=== Rule Based Evaluation on SAMPLE_POSTS ===")
     for text, true_label in zip(posts, labels):
+        score, _, _ = analyzer.score_text(text)
         predicted_label = analyzer.predict_label(text)
         is_correct = predicted_label == true_label
         if is_correct:
@@ -30,7 +31,7 @@ def evaluate_rule_based(posts: List[str], labels: List[str]) -> float:
         # reason = analyzer.explain(text)
         # print(f'"{text}" -> predicted={predicted_label}, true={true_label} ({reason})')
 
-        print(f'"{text}" -> predicted={predicted_label}, true={true_label}')
+        print(f'"{text}" -> score={score}, predicted={predicted_label}, true={true_label}')
 
     if total == 0:
         print("\nNo labeled examples to evaluate.")
