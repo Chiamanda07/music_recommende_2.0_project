@@ -145,18 +145,14 @@ Run `python rag_recommender.py`, enter each query below, and fill in what song w
 
 | # | Mood Query | Song Recommended | Good Match? | Notes |
 |---|-----------|-----------------|-------------|-------|
-| 1 | I feel really happy and want to dance | | | |
-| 2 | I just went through a breakup and I'm heartbroken | | | |
-| 3 | I need to focus and get work done | | | |
-| 4 | I feel nostalgic and miss my childhood | | | |
-| 5 | I'm stressed and anxious about everything | | | |
-| 6 | I want to feel powerful and confident | | | |
-| 7 | I feel calm and just want to relax | | | |
-| 8 | I'm falling in love and feel really romantic | | | |
-| 9 | I'm angry and frustrated and want to let it out | | | |
-| 10 | I feel hopeful and inspired like anything is possible | | | |
+| 1 | I feel really happy and want to dance |"Can't Stop the Feeling!" by Justin Timberlake | Yes | No notes |
+| 2 | I just went through a breakup and I'm heartbroken |"Someone Like You" by Adele | Yes | That's a good classic |
+| 3 | I need to focus and get work done | "Lose Yourself" by Eminem |Maybe | I guess that's ok |
+| 4 | I feel nostalgic and miss my childhood |Summer of '69" by Bryan Adams |Not bad | Different people might have different songs that resonate with teir own childhood |
+| 5 | I'm stressed and anxious about everything | "Weightless" by Marconi Union | Good | No notes |
 
-**Overall relevance:** Out of 10 queries, how many recommendations felt like a good match? ___/10
+
+**Overall relevance:** Out of 5 queries, how many recommendations felt like a good match? 4/5
 
 ---
 
@@ -166,17 +162,17 @@ Test these three inputs and record what happens.
 
 **Edge Case 1 — Vague mood:**  
 Query: `I feel weird`  
-Result: *(fill in what was recommended)*  
+Result: *"Liability" by Lorde*  
 Why it's tricky: No clear emotional signal — "weird" could mean anxious, confused, excited, or anything.
 
 **Edge Case 2 — Slang and mixed signals:**  
 Query: `lowkey vibing but also kinda sad ngl`  
-Result: *(fill in what was recommended)*  
+Result: *"Someone Like You" by Adele*  
 Why it's tricky: Internet slang may not match the formal mood descriptions in the song database.
 
 **Edge Case 3 — Conflicting emotions:**  
 Query: `I'm happy for my friend but also jealous and kind of sad`  
-Result: *(fill in what was recommended)*  
+Result: *"Someone Like You" by Adele*  
 Why it's tricky: Three competing emotions make it hard to settle on one best-fit song.
 
 ---
@@ -184,10 +180,10 @@ Why it's tricky: Three competing emotions make it hard to settle on one best-fit
 ### Findings and Limitations
 
 **What worked well:**  
-*(Fill in after testing — e.g. which mood categories got the best results)*
+When you don't mix different emotions in a sentence, it gives you a good pick
 
 **What struggled:**  
-*(Fill in after testing — e.g. vague queries, slang, mixed emotions)*
+When there where different emotions in a sentence it picks only one. For example, everytime "sad" was mentioned, Adele's song "someone like you" came up. Even if the person was happy sad.
 
 **Limitations of the RAG approach:**
 - The song database only has 62 songs, so rare or niche moods may not have a strong match
