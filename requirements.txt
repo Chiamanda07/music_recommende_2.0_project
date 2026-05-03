@@ -1,3 +1,7 @@
 scikit-learn
 matplotlib
 ipykernel
+sentence-transformers
+numpy
+google-generativeai
+python-dotenv
