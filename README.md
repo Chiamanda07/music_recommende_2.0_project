@@ -102,9 +102,9 @@ The next version of this project adds a **Retrieval-Augmented Generation (RAG)**
 - [x] Prompt Gemini to pick the best match and explain in 2–3 sentences why it fits the mood
 
 #### Phase 2.5 — Interactive CLI
-- [ ] Add an interactive loop to `rag_recommender.py` where the user types their mood and receives a song recommendation
-- [ ] Display the song title, artist, genre, and the LLM's explanation
-- [ ] Let the user type `another` to get the next best match or `quit` to exit
+- [x] Add an interactive loop to `rag_recommender.py` where the user types their mood and receives a song recommendation
+- [x] Display the song title, artist, genre, and the LLM's explanation
+- [x] Let the user type `another` to get the next best match or `quit` to exit
 
 #### Phase 2.6 — Testing and Evaluation
 - [ ] Test with at least 10 diverse mood inputs and record whether the recommendations feel relevant

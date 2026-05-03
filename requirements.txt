@@ -3,5 +3,5 @@ matplotlib
 ipykernel
 sentence-transformers
 numpy
-google-generativeai
+groq
 python-dotenv
