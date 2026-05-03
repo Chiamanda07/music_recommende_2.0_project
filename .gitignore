@@ -1,0 +1,13 @@
+# API keys — never commit these
+.env
+
+# Cached song embeddings (regenerated automatically)
+song_embeddings_cache.npz
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# VS Code
+.vscode/
