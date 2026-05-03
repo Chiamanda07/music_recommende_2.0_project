@@ -121,3 +121,82 @@ Possible directions:
 - Use a small neural network or transformer model  
 - Improve the rule based scoring method  
 - Add a real test set instead of training accuracy only
+
+---
+
+## Phase 2: RAG Music Recommender
+
+### System Overview
+
+**How it works:**  
+The user types a free-text description of their mood. A sentence-transformer model (`all-MiniLM-L6-v2`) converts both the query and all song mood descriptions into vector embeddings. Cosine similarity is used to retrieve the top 5 most relevant songs. A Groq-hosted LLM (`llama-3.1-8b-instant`) then receives the query and candidates as context and picks the single best match, explaining why it fits.
+
+**Components:**
+- `songs.py` — 62 songs with mood descriptions across 12 mood categories
+- `embedder.py` — sentence-transformer embedding + disk cache
+- `retriever.py` — cosine similarity search
+- `rag_recommender.py` — LLM integration and interactive CLI
+
+---
+
+### Test Results
+
+Run `python rag_recommender.py`, enter each query below, and fill in what song was recommended and whether it felt like a good match (Yes / Somewhat / No).
+
+| # | Mood Query | Song Recommended | Good Match? | Notes |
+|---|-----------|-----------------|-------------|-------|
+| 1 | I feel really happy and want to dance | | | |
+| 2 | I just went through a breakup and I'm heartbroken | | | |
+| 3 | I need to focus and get work done | | | |
+| 4 | I feel nostalgic and miss my childhood | | | |
+| 5 | I'm stressed and anxious about everything | | | |
+| 6 | I want to feel powerful and confident | | | |
+| 7 | I feel calm and just want to relax | | | |
+| 8 | I'm falling in love and feel really romantic | | | |
+| 9 | I'm angry and frustrated and want to let it out | | | |
+| 10 | I feel hopeful and inspired like anything is possible | | | |
+
+**Overall relevance:** Out of 10 queries, how many recommendations felt like a good match? ___/10
+
+---
+
+### Edge Case Testing
+
+Test these three inputs and record what happens.
+
+**Edge Case 1 — Vague mood:**  
+Query: `I feel weird`  
+Result: *(fill in what was recommended)*  
+Why it's tricky: No clear emotional signal — "weird" could mean anxious, confused, excited, or anything.
+
+**Edge Case 2 — Slang and mixed signals:**  
+Query: `lowkey vibing but also kinda sad ngl`  
+Result: *(fill in what was recommended)*  
+Why it's tricky: Internet slang may not match the formal mood descriptions in the song database.
+
+**Edge Case 3 — Conflicting emotions:**  
+Query: `I'm happy for my friend but also jealous and kind of sad`  
+Result: *(fill in what was recommended)*  
+Why it's tricky: Three competing emotions make it hard to settle on one best-fit song.
+
+---
+
+### Findings and Limitations
+
+**What worked well:**  
+*(Fill in after testing — e.g. which mood categories got the best results)*
+
+**What struggled:**  
+*(Fill in after testing — e.g. vague queries, slang, mixed emotions)*
+
+**Limitations of the RAG approach:**
+- The song database only has 62 songs, so rare or niche moods may not have a strong match
+- The LLM always picks a winner even when no candidate is a great fit
+- Slang and informal language in queries may not align well with the formal mood descriptions written for each song
+- The system has no memory — it cannot learn from feedback over time
+
+**Ideas for improvement:**
+- Expand the song database to 200+ songs with more niche moods
+- Write mood descriptions using more casual, natural language to better match user queries
+- Add user feedback ("did this recommendation feel right?") to improve future picks
+- Use a reranking step where the LLM scores all 5 candidates before picking one

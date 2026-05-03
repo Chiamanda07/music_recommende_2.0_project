@@ -107,9 +107,9 @@ The next version of this project adds a **Retrieval-Augmented Generation (RAG)**
 - [x] Let the user type `another` to get the next best match or `quit` to exit
 
 #### Phase 2.6 — Testing and Evaluation
-- [ ] Test with at least 10 diverse mood inputs and record whether the recommendations feel relevant
-- [ ] Identify at least 3 edge cases where the system struggles (vague moods, conflicting feelings, slang)
-- [ ] Document findings in `model_card.md`
+- [x] Test with at least 10 diverse mood inputs and record whether the recommendations feel relevant
+- [x] Identify at least 3 edge cases where the system struggles (vague moods, conflicting feelings, slang)
+- [x] Document findings in `model_card.md`
 
 #### Phase 2.7 — Documentation
 - [ ] Update `requirements.txt` with all new dependencies (`sentence-transformers`, `google-generativeai`, `numpy`)
