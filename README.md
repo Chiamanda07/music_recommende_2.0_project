@@ -61,6 +61,8 @@ Type how you are feeling and press Enter to get a song recommendation.
 
 ## Sample Interaction
 
+There's a demo walkthrough of the RAG Music Recommender in this [demo](assets/demo_video.mp4).
+
 ```
 ============================================================
          Welcome to the RAG Music Recommender
