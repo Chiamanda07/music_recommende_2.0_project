@@ -1,6 +1,6 @@
 # RAG Music Recommender
 
-## Original Project: [The Mood Machine](https://github.com/Chiamanda07/ai110-module3show-musicrecommendersimulation-starter)
+## Original Project: [Music Recommender Simulation](https://github.com/Chiamanda07/ai110-module3show-musicrecommendersimulation-starter)
 
 The original project built a small music recommender that represented songs and a user taste profile as data, then used a scoring rule to rank recommendations. It focused on understanding how real-world AI recommenders work by evaluating what the system got right and wrong. This version upgrades it into a full **RAG (Retrieval-Augmented Generation)** system where you type how you are feeling and an LLM picks a song that matches your mood.
 
