@@ -196,3 +196,19 @@ When there where different emotions in a sentence it picks only one. For example
 - Write mood descriptions using more casual, natural language to better match user queries
 - Add user feedback ("did this recommendation feel right?") to improve future picks
 - Use a reranking step where the LLM scores all 5 candidates before picking one
+
+---
+
+## Responsible AI Reflection
+
+**What are the limitations or biases in your system?**  
+The song database only has 62 songs and they are mostly Western, English-language pop and rock, so users whose taste comes from other cultures or genres will get poor recommendations. The mood descriptions were written by AI using formal language, which means casual or slang-heavy queries do not match well even when the emotional meaning is the same. The system also over-relies on a few dominant songs .For example "Someone Like You" by Adele came up for almost every query that mentioned sadness, even when it was not the best fit.
+
+**Could your AI be misused, and how would you prevent that?**  
+Someone could repeatedly feed the system negative mood queries to intentionally receive sad or dark music recommendations, which could be harmful if the person is already struggling emotionally. The system also has no way of knowing if a user is describing a crisis rather than a general mood. A future safeguard would be adding keyword detection for distress signals and responding with a supportive message or a helpline instead of a song recommendation.
+
+**What surprised you while testing your AI's reliability?**  
+It was surprising that even vague inputs like "I feel weird" still returned a reasonable result (Lorde's "Liability") because the embedding model found emotional meaning even without a clear mood word. It was also unexpected how strongly one song could dominate multiple different queries just because its mood description overlapped with common words like "sad" or "heartbreak." The system felt more reliable on simple, single-emotion queries than on anything complex or mixed.
+
+**Collaboration with AI during this project**  
+The AI was genuinely helpful when it came to writing the mood descriptions for all 62 songs — generating natural-language descriptions for each song quickly would have taken a long time to do manually. One instance where the AI's suggestion was flawed was when it recommended using the `google-generativeai` package for the Gemini integration, which turned out to be fully deprecated and gave persistent quota errors that took a long time to debug. Switching to Groq only happened after the AI's original approach failed completely, which taught me to verify that a suggested library is still actively supported before building on it.
